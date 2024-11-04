@@ -6,6 +6,8 @@ import pytest
 from bibip_car_service import CarService
 from models import Car, CarFullInfo, CarStatus, Model, ModelSaleStats, Sale
 
+import os
+
 
 @pytest.fixture
 def car_data():
@@ -143,6 +145,9 @@ class TestCarServiceScenarios:
         assert service.get_cars(CarStatus.available) == available_cars
 
     def test_list_full_info_by_vin(self, tmpdir: str, car_data: list[Car], model_data: list[Model]):
+        sales_file_path = os.path.join(tmpdir, "sales.txt")    #
+        if not os.path.exists(sales_file_path):    #
+            open(sales_file_path, "w").close()    #
         service = CarService(tmpdir)
 
         self._fill_initial_data(service, car_data, model_data)
