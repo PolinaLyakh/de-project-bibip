@@ -1,8 +1,8 @@
-from models import Car, CarFullInfo, CarStatus, Model, ModelSaleStats, Sale
 import os
 from decimal import Decimal
 from datetime import datetime
-# from enum import StrEnum
+
+from models import Car, CarFullInfo, CarStatus, Model, ModelSaleStats, Sale
 
 
 class ModelIndex:
@@ -487,6 +487,7 @@ class CarService:
                     )
         return model_stats
 
+
 """ Проверка работы функций
 if __name__ == '__main__':
     obj = CarService("/Users/lina/Dev/InterimProject/de-project-bibip/temp_data")
@@ -678,4 +679,4 @@ if __name__ == '__main__':
     # obj.top_models_by_sales()
     print('--------------------------------------------------')
     '''
-""" 
+"""
